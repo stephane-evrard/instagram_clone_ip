@@ -10,4 +10,12 @@ from django.forms.utils import flatatt
 class NewsLetterForm(forms.Form):
     your_name = forms.CharField(label='First Name',max_length=30)
     email = forms.EmailField(label='Email')
-  
+
+class NewImageForm(forms.ModelForm):
+    class Meta:
+        model = Image
+        exclude = ['Author', 'image_name', 'pub_date', 'author_profile', 'likes']
+        widgets = {
+          'description': forms.Textarea(attrs={'rows':4, 'cols':10,}),
+        }
+      
