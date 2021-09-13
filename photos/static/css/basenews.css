@@ -1,0 +1,77 @@
+h1
+{
+  color: black;
+}
+
+html, body {
+  position: relative;
+  min-height: 100%;
+}
+
+/* Within style tags in your html file */
+* { box-sizing: border-box; }
+
+.grid:after {
+  content: '';
+  display: block;
+  clear: both;
+}
+
+.grid-sizer,
+.grid-item {
+  width: 33.333%;
+}
+@media (max-width: 575px) {
+  .grid-sizer,
+  .grid-item {
+    width: 100%;
+  }
+}
+@media (min-width: 576px) and (max-width: 767px) {
+  .grid-sizer,
+  .grid-item {
+    width: 50%;
+  }
+}
+
+/* To change the amount of columns on larger devices, uncomment the code below */
+
+/* @media (min-width: 768px) and (max-width: 991px) {
+  .grid-sizer,
+  .grid-item {
+    width: 33.333%;
+  }
+}
+@media (min-width: 992px) and (max-width: 1199px) {
+  .grid-sizer,
+  .grid-item {
+    width: 25%;
+  }
+}
+@media (min-width: 1200px) {
+  .grid-sizer,
+  .grid-item {
+    width: 20%;
+  }
+} */
+
+.grid-item {
+  float: left;
+  border-radius: 15px;
+  box-shadow: 0 5px 5px black;
+}
+
+.grid-item img {
+  display: block;
+  max-width: 100%;
+  border-radius: 15px;
+  box-shadow: 0 5px 5px black;
+}
+
+.col-form-label {
+  display: none;
+}
+
+label {
+  display: none;
+}
