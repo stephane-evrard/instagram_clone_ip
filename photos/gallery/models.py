@@ -1,3 +1,4 @@
+
 from django.db import models
 import datetime as dt
 from django.contrib.auth.models import User
@@ -33,7 +34,8 @@ class Profile(models.Model):
     class Meta:
         verbose_name = 'Profile'
         verbose_name_plural = 'Profiles'
-
+        
+    
 class Image(models.Model):
     image_file = models.ImageField(upload_to = 'images/', default='images/beagle.jpg')
     image_name = models.CharField(max_length=255)
@@ -87,6 +89,7 @@ class Image(models.Model):
         ordering = ['-pub_date']
         verbose_name = 'My image'
         verbose_name_plural = 'Images'
+
 
 class Comment(models.Model):
     comment = models.TextField(blank=True)
