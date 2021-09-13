@@ -10,7 +10,8 @@ from django.forms.utils import flatatt
 class NewsLetterForm(forms.Form):
     your_name = forms.CharField(label='First Name',max_length=30)
     email = forms.EmailField(label='Email')
-
+  
+    
 class NewImageForm(forms.ModelForm):
     class Meta:
         model = Image
@@ -18,6 +19,7 @@ class NewImageForm(forms.ModelForm):
         widgets = {
           'description': forms.Textarea(attrs={'rows':4, 'cols':10,}),
         }
+        
 
 class NewCommentForm(forms.ModelForm):
     class Meta:
@@ -34,6 +36,7 @@ class NewCommentForm(forms.ModelForm):
             self.fields['comment'].label = False
             self.helper.show_label_comment = False
 
+
 class ProfileUpdateForm(forms.ModelForm):
     class Meta:
         model = Profile
@@ -41,6 +44,7 @@ class ProfileUpdateForm(forms.ModelForm):
         widgets = {
           'bio': forms.Textarea(attrs={'rows':2, 'cols':10,}),
         }
+        
         
 class RegisterForm(RegistrationForm):
     first_name = forms.CharField(max_length=255)
@@ -56,4 +60,4 @@ class RegisterForm(RegistrationForm):
         for fieldname in ['username', 'password1', 'password2']:
             self.fields[fieldname].help_text = None
         self.helper.form_show_labels = True 
-            
+        
