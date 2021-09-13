@@ -35,6 +35,7 @@ def index(request):
 
     return render(request, 'index.html', {"date": date, "images":images, "comments":comments, "form": form,})
 
+
 def register(request):
     if request.method == 'POST':
         form = RegisterForm(request.POST)
@@ -50,6 +51,7 @@ def register(request):
     else:
         form = RegisterForm()
     return render(request, 'registration/registration_form.html', {'form':form})
+    
 
 @login_required(login_url='/accounts/login/')
 def search_images(request):
@@ -63,6 +65,7 @@ def search_images(request):
     else:
         message = "You haven't searched for any term"
         return render(request, 'search.html', {"message": message})
+
 
 @login_required(login_url='/accounts/login/')
 def get_image(request, id):
@@ -91,6 +94,7 @@ def get_image(request, id):
     
     return render(request, "images.html", {"image":image, "form":form, "comments":comments})
     
+
 @login_required(login_url='/accounts/login/')
 def new_image(request):
     current_user = request.user
@@ -105,6 +109,7 @@ def new_image(request):
     else:
         form = NewImageForm()
     return render(request, 'new-image.html', {"form": form})
+
 
 @login_required(login_url='/accounts/login/')
 def user_profiles(request):
@@ -141,3 +146,4 @@ def like_image(request, id):
         is_liked = True
     
     return ("index")
+
