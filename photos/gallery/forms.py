@@ -33,3 +33,13 @@ class NewCommentForm(forms.ModelForm):
             self.helper.form_show_labels = False
             self.fields['comment'].label = False
             self.helper.show_label_comment = False
+
+class ProfileUpdateForm(forms.ModelForm):
+    class Meta:
+        model = Profile
+        exclude = ['user']
+        widgets = {
+          'bio': forms.Textarea(attrs={'rows':2, 'cols':10,}),
+        }
+        
+        
