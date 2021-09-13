@@ -87,3 +87,29 @@ class Image(models.Model):
         ordering = ['-pub_date']
         verbose_name = 'My image'
         verbose_name_plural = 'Images'
+
+class Comment(models.Model):
+    comment = models.TextField(blank=True)
+    author = models.ForeignKey(User, on_delete=models.CASCADE)
+    image = models.ForeignKey(Image, on_delete=models.CASCADE)
+    pub_date = models.DateTimeField(auto_now_add=True)
+
+    def save_comment(self):
+        self.save()
+
+    def delete_comment(self):
+        self.delete()
+    
+    @classmethod
+    def get_comment(cls):
+        comments = cls.objects.all()
+        return comments
+    
+    def __str__(self):
+        return self.comment
+    
+    class Meta:
+        verbose_name = 'Comment'
+        verbose_name_plural = 'Comments'
+        
+        
