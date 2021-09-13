@@ -18,4 +18,18 @@ class NewImageForm(forms.ModelForm):
         widgets = {
           'description': forms.Textarea(attrs={'rows':4, 'cols':10,}),
         }
-      
+
+class NewCommentForm(forms.ModelForm):
+    class Meta:
+        model = Comment
+        exclude = ['author', 'image', 'pub_date']
+        widgets = {
+          'comment': forms.Textarea(attrs={'rows':1, 'cols':10}),
+        }
+        
+        def __init__(self, *args, **kwargs):
+            super(NewCommentForm, self).__init__(*args, **kwargs)
+            self.helper = FormHelper()
+            self.helper.form_show_labels = False
+            self.fields['comment'].label = False
+            self.helper.show_label_comment = False
