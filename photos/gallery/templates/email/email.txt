@@ -1,0 +1,3 @@
+Hello {{name}}
+
+Welcome to InstaClone. You will find the most exciting pictures from around the world on InstaClone.
